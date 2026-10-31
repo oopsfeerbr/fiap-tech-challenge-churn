@@ -1,0 +1,11 @@
+﻿__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+.vscode/
+.ipynb_checkpoints/
+
+# Dataset original - verificar licenca antes de publicar
+/Telco_customer_churn.xlsx
