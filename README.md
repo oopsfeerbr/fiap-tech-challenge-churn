@@ -38,6 +38,36 @@ Características do conjunto original:
 
 Para a modelagem, foram selecionadas 20 variáveis preditoras.
 
+### Como obter o dataset
+
+O projeto utiliza o dataset público Telco Customer Churn,
+disponibilizado pela IBM e acessível por meio do Kaggle.
+
+Para reproduzir as análises e o treinamento:
+
+1. Acesse o Kaggle e procure pelo dataset IBM Telco Customer Churn.
+2. Baixe a versão que contém o arquivo Telco_customer_churn.xlsx.
+3. Coloque o arquivo na pasta principal do projeto, no mesmo nível do README.md.
+4. Mantenha exatamente o nome Telco_customer_churn.xlsx.
+
+Estrutura esperada:
+
+fiap-tech-challenge-churn/
+├── Telco_customer_churn.xlsx
+├── README.md
+├── requirements.txt
+├── analise_eda.py
+├── preparacao_dados.py
+└── salvar_modelo.py
+
+Observação: o dataset original não está incluído no repositório GitHub.
+O arquivo deve ser obtido separadamente para executar os scripts de
+análise exploratória, preparação e treinamento.
+
+A API de previsão pode ser executada sem o dataset original,
+pois utiliza o modelo previamente treinado e salvo em
+models/churn_model.joblib.
+
 ## 4. Análise exploratória dos dados (EDA)
 
 A análise exploratória permitiu compreender o comportamento dos clientes e identificar características associadas ao cancelamento.
