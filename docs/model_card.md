@@ -252,6 +252,73 @@ Entre as possibilidades de evolução estão:
 
 ## 13. Considerações finais
 
+## 13. Possíveis vieses e considerações de equidade
+
+Embora o modelo tenha apresentado resultados satisfatórios para os objetivos acadêmicos do projeto, existem possíveis vieses que devem ser considerados antes de sua utilização em um ambiente empresarial.
+
+### Representatividade dos dados
+
+O dataset IBM Telco Customer Churn representa uma amostra específica de clientes de telecomunicações.
+
+Não é possível garantir que seus padrões sejam representativos de diferentes regiões, operadoras, períodos ou perfis de consumidores.
+
+Consequentemente, o desempenho do modelo pode variar quando aplicado a populações diferentes daquelas utilizadas durante o treinamento.
+
+### Variáveis demográficas
+
+O conjunto de dados contém características como `Gender` e `Senior Citizen`.
+
+Essas variáveis podem estar associadas a diferenças nas previsões realizadas para determinados grupos de clientes.
+
+A utilização dessas informações exige atenção à possibilidade de tratamento desigual entre segmentos da população.
+
+### Diferenças de desempenho entre grupos
+
+O desempenho geral do modelo não garante resultados equivalentes para todos os segmentos de clientes.
+
+Uma avaliação adicional poderia comparar, entre diferentes grupos:
+
+* Precision.
+* Recall.
+* Taxas de falsos positivos.
+* Taxas de falsos negativos.
+* Distribuição das probabilidades previstas.
+
+Essas análises permitiriam investigar possíveis diferenças de desempenho e seus impactos.
+
+### Limitações da avaliação de equidade
+
+O projeto não realizou uma auditoria quantitativa específica de equidade entre grupos demográficos.
+
+Portanto, não é possível afirmar que o modelo apresenta ou não apresenta vieses discriminatórios.
+
+Antes de uma aplicação real, recomenda-se realizar avaliações segmentadas, revisar o uso de variáveis sensíveis e estabelecer mecanismos de monitoramento.
+
+## 14. Reprodutibilidade dos experimentos
+
+O projeto adotou configurações destinadas a melhorar a reprodutibilidade do treinamento e da avaliação dos modelos.
+
+### Configurações utilizadas
+
+| Parâmetro                           | Configuração        |
+| ----------------------------------- | ------------------- |
+| Seed principal                      | `RANDOM_STATE = 42` |
+| Proporção de treinamento            | 80%                 |
+| Proporção de teste                  | 20%                 |
+| Estratificação treino/teste         | Sim                 |
+| Estratégia de validação cruzada     | StratifiedKFold     |
+| Quantidade de divisões              | 5                   |
+| Embaralhamento na validação cruzada | Sim                 |
+| Seed da validação cruzada           | 42                  |
+
+A mesma seed foi utilizada na divisão dos dados e na configuração dos algoritmos Logistic Regression, Random Forest e MLPClassifier.
+
+As dependências necessárias para execução estão documentadas no arquivo `requirements.txt`.
+
+A utilização de seeds fixadas reduz a variabilidade decorrente de operações pseudoaleatórias, embora não garanta resultados absolutamente idênticos entre diferentes ambientes computacionais ou versões de bibliotecas.
+
+## 15. Considerações finais
+
 O projeto demonstrou a construção de uma solução de Machine Learning para classificação de churn, contemplando análise exploratória, preparação dos dados, treinamento, comparação de algoritmos, seleção do modelo campeão, serialização e disponibilização por API REST.
 
 A Logistic Regression apresentou o melhor F1-Score médio na validação cruzada entre os modelos avaliados.
@@ -259,3 +326,6 @@ A Logistic Regression apresentou o melhor F1-Score médio na validação cruzada
 A API foi validada por meio de uma requisição de previsão bem-sucedida e quatro testes automatizados aprovados.
 
 Os resultados demonstram a viabilidade técnica da solução como protótipo, embora sua utilização em produção dependa de validações adicionais.
+
+O projeto também reconhece limitações relacionadas à representatividade dos dados, à possibilidade de vieses entre grupos de clientes e à necessidade de monitoramento contínuo em aplicações reais.
+
